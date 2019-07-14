@@ -1,0 +1,65 @@
+.upper {
+    text-align: center;
+}
+.upper div {
+    display: inline-block;
+}
+#smiley {
+    width: 28px;
+    height: 28px;
+    margin-left: 46px;
+    margin-top: 5px;
+    background-size: 27px 27px !important;
+    background-repeat: no-repeat !important;
+}
+#bombCounter {
+    float: left;
+    margin-left: 6px;
+}
+#gameTimer {
+    float: right;
+    margin-right: 52px;
+}
+#bombCounter, #gameTimer {
+    margin-top: 8px;
+}
+
+.around {
+    /*margin: 20px 0 0 10px;*/
+    margin: 25px auto;
+    display: table;
+    background: #c0c0c0;
+    border-style: solid;
+    border-width: 3px;
+    border-top-color: #ececec;
+    border-left-color: #ececec;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+}
+
+.around:active #smiley {
+    background: url("../assets/images/smiley-pressed.svg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 27px 27px !important;
+}
+
+.grid {
+    display: grid;
+}
+
+.icon_wrap {
+    margin-bottom: 32px;
+}
+.info_icon, .settings_icon {
+    width: 20px;
+    float: right;
+}
+.settings_icon {
+    margin-right: 7px;
+}
+.info_icon {
+    margin-right: 11px;
+}
+.settings, .info {
+    padding: 3px;
+}

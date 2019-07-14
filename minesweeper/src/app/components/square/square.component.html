@@ -1,0 +1,10 @@
+<ng-container *ngIf="data.triggered; else idle" >
+  <div class="triggered" [style.background]="triggeredBackground()">
+    <img *ngIf="imgPath()!=''" [src]="imgPath()" alt="" class="inner"/>
+  </div>
+</ng-container>
+<ng-template #idle>
+  <div class="ms-button idle">
+    <img *ngIf="data.flag" src="assets/images/flag.svg" alt="" class="inner"/>
+  </div>
+</ng-template>

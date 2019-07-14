@@ -1,0 +1,35 @@
+body {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.ms-button {
+    background: #c0c0c0;
+    border-style: solid;
+    border-width: 3px;
+    border-top-color: #ececec;
+    border-left-color: #ececec;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    align-items:center;
+}
+.ms-button:active {
+    background: #a0a0a0;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #a0a0a0;
+    border-bottom-color: #a0a0a0;
+}
+
+.ms-wrapper {
+    margin: 6px;
+    border-width: 3px;
+    border-style: solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ececec;
+    border-bottom-color: #ececec;
+}

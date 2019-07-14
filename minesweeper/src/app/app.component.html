@@ -1,0 +1,24 @@
+<div class="around">
+  <div class="upper ms-wrapper">
+    <app-timer id="bombCounter" #bombCounter></app-timer>
+    <div id="smiley" class="ms-button" (click)="clearGrid()" [style.background]="'url(../assets/images/smiley-' + minesweeperService.smileyType + '.svg)'"></div>
+    <app-timer id="gameTimer" #gameTimer></app-timer>
+  </div>
+  <div class="ms-wrapper">
+    <div #grid class="grid" [ngStyle]="{ 'grid-template-columns':'repeat(' + minesweeperService.columnCount + ', 1fr)' }">
+      <div *ngFor="let column of minesweeperService.columnArray">
+        <app-square *ngFor="let square of column.squareArray" [data]="square" (click)="klik(square.idxX, square.idxY)" (contextmenu)="flag(square.idxX, square.idxY)"></app-square>
+      </div>
+    </div>
+  </div>
+  <div class="icon_wrap">
+    <img class="info_icon" src="assets/images/info.svg" alt="" (click)="infoViewed=!infoViewed" [style.opacity]="infoViewed ? .9 : .5">
+    <img class="settings_icon" src="assets/images/settings.svg" alt="" (click)="settingsViewed=!settingsViewed" [style.opacity]="settingsViewed ? .9 : .5">
+  </div>
+  <div *ngIf="settingsViewed" class="ms-wrapper settings" [style.width.px]="gridWidth" >
+    Sem patří nastavení.
+  </div>
+  <div *ngIf="infoViewed" class="ms-wrapper info" [style.width.px]="gridWidth" >
+    Sem patří informace o minesweeperu.
+  </div>
+</div>
