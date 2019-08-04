@@ -11,6 +11,7 @@ export class AppComponent {
   @ViewChild('bombCounter') bombCounter;
   @ViewChild('gameTimer') gameTimer;
   gridWidth: number;
+  flagCount: number;
 
   constructor (private minesweeperService: MinesweeperService) {
     this.minesweeperService.clearGrid();
@@ -26,16 +27,23 @@ export class AppComponent {
     this.minesweeperService.clearGrid();
     this.gameTimer.setDigits(0);
     this.bombCounter.setDigits(this.minesweeperService.bombCount);
+    this.flagCount = 0;
   }
 
   klik(x, y) {
     if (this.minesweeperService.gameTerminated || this.minesweeperService.columnArray[x].squareArray[y].flag || this.minesweeperService.columnArray[x].squareArray[y].triggered) return;
     if (!this.minesweeperService.bombsSet) this.gameTimer.startTimer();
     this.minesweeperService.columnArray[x].squareArray[y].pressed = true;
-    this.minesweeperService.triggerSquare(x, y);
+    let change: boolean = this.minesweeperService.triggerSquare(x, y);
 
-    if (this.minesweeperService.gameTerminated) this.gameTimer.stopTimer();
-    //sem asi prijde nejaky 'evaluation' kod
+    if (this.minesweeperService.gameTerminated) {
+      this.gameTimer.stopTimer();
+      this.bombCounter.setDigits(0);
+      return;
+    }
+    if (change) this.bombCounter.setDigits(this.minesweeperService.bombCount - this.flagCount);
+    
+    this.minesweeperService.evaluate();
   }
   flag(x, y) {
     if (this.minesweeperService.gameTerminated || this.minesweeperService.columnArray[x].squareArray[y].triggered) return false;
@@ -43,8 +51,12 @@ export class AppComponent {
     if (this.bombCounter.timerValue == 0 && !flagStatus) return false;
     this.minesweeperService.flag(x, y);
     this.minesweeperService.columnArray[x].squareArray[y].flag = !flagStatus;
+    this.flagCount += (flagStatus ? -1 : 1);
     if (flagStatus) this.bombCounter.increment(); else this.bombCounter.decrement();
-    if (this.minesweeperService.gameTerminated) this.gameTimer.stopTimer();
+    if (this.minesweeperService.gameTerminated) {
+      this.gameTimer.stopTimer();
+      this.bombCounter.setDigits(0);
+    }
     return false;
   }
 
