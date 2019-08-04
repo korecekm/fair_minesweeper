@@ -3,7 +3,9 @@ export class MSList {
     private xArray: number[];
     private yArray: number[];
 
-    constructor() {}
+    constructor() {
+        this.clear();
+    }
     clear() {
         this.size = 0;
         this.xArray = [];
