@@ -19,6 +19,35 @@
     Sem patří nastavení.
   </div>
   <div *ngIf="infoViewed" class="ms-wrapper info" [style.width.px]="gridWidth" >
-    Sem patří informace o minesweeperu.
+    <strong>O hře</strong>
+    <div class="paragraph">
+      Toto je v podstatě klasické hledání min. Políčka po kliknutí odhalí, kolik se kolem nich nachází min. 
+      Vyhráváte, pokud odhalíte všechna políčka bez min, nebo všechny miny označíte vlaječkou (to můžete udělat stiskem pravého tlačítka myši). 
+      Levý číselník nahoře ukazuje celkový počet min minus počet využitých vlaječek. Pravý počítá čas od začátku hry (hra začíná odhalením prvního pole). Smajlík vytvoří nové herní pole. 
+      Chcete-li se o hledání min dozvědět více, můžete tak učinit například <a target="_blank" rel="noopener noreferrer" href="http://www.minesweeper.info/wiki/">zde</a>.
+    </div>
+    <div class="paragraph">
+      Tato verze je navíc 'spravedlivá', což znamená:
+      <ul>
+        <li>pokud u žádného políčka není jisté, že neobsahuje minu, kliknutí na libovolné políčko, kde mina není <i>určitě</i>, nikdy neodhalí minu</li>
+        <li>pokud naopak existují políčka, kde miny určitě nejsou, a přesto se rozhodnete odhalit políčko, kde to jisté není, mina tu vždy bude</li>
+      </ul>
+      <i>Ve výjimečných případech mohou tyto vlastnosti mírně změnit počet min v poli. To se ale příslušně projeví na levém číselníku.</i>
+    </div>
+    <strong>Co se dá nastavit</strong>
+    <div class="paragraph">
+      V první řadě můžete nastavit velikost hrací plochy a počet min (<i>začátečník</i> znamená pole 8x8 s 10 minami, <i>střední</i> 16x16 s 40 minami a <i>expert</i> 24x24 s 90 minami). 
+      Taky si počty můžete vybrat sami, ale výška i šířka musí být mezi osmi a šedesáti a počet min (musí být kladný a) nesmí přesáhnout 999 (víc se nevejde na číselník), ani 9/10 počtu políček.
+    </div>
+    <div class="paragraph">
+      Navíc, pokud chcete, můžete vypnout popsané efekty spravedlivosti (<i>odstraňování</i>, resp. <i>přidávání</i> min) a pokud by Vás to zajímalo, můžete si nechat odhalovat pravděpodobnosti min v políčkách. 
+      Žlutá barva indikuje nejisté políčko, červená políčko s jistou minou a zelená políčko, kde mina určitě není.
+    </div>
+    <div class="paragraph">
+      Nastavení se zaznamená až po stisknutí 'OK' a projeví se až po stisknutí smajlíka.
+    </div>
+    <div class="paragraph">
+      <i>Hru vytvořil Martin Koreček jako zápočtový program v prvním ročníku na MFF UK. Zajímá-li Vás kód hry, najdete ho i s dokumentací na <a target="_blank" rel="noopener noreferrer" href="https://github.com/korecekm/fair_minesweeper/tree/master/minesweeper">githubu</a>.</i>
+    </div>
   </div>
 </div>
