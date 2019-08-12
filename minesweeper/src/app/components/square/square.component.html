@@ -4,7 +4,7 @@
   </div>
 </ng-container>
 <ng-template #idle>
-  <div class="ms-button idle">
+  <div class="ms-button idle" [style.background]="idleColor()">
     <img *ngIf="data.flag" src="assets/images/flag.svg" alt="" class="inner"/>
   </div>
 </ng-template>

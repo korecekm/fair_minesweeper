@@ -24,9 +24,11 @@ export class SquareComponent implements OnInit {
     return 'assets/images/n' + this.data.num + '.svg';
   }
 
-  /* debugColor() {
+  idleColor() {
+    if (!this.data.showLikelihood) return '#c0c0c0';
+
     if (this.data.state == SquareInfo.State.Any) return 'rgb(250, 243, 126)';
     if (this.data.state == SquareInfo.State.Certain) return 'rgb(250, 150, 150)';
     return 'rgb(150, 250, 150)';
-  } */
+  }
 }
