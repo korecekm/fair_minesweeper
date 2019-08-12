@@ -1,5 +1,5 @@
 import { ColumnInfo } from "./column_info";
-import { Injectable } from "../../../node_modules/@angular/core";
+import { Injectable } from "@angular/core";
 import { MSList } from "./ms_list";
 import { SquareInfo } from "./square_info";
 import { EvaluationData } from "./evaluation_data";
