@@ -11,13 +11,13 @@ export class MinesweeperService {
     public gameTerminated: boolean;
     public smileyType: string;
     public bombsSet: boolean;
-    public rowCount: number = 16;
-    public columnCount: number = 16;
-    public bombCount: number = 40;
+    public rowCount: number;
+    public columnCount: number;
+    public bombCount: number;
     //nastaveni specialniho chovani:
-    public removeMines: boolean = true;     //maji se miny odstranovat, pokud uzivatel nemuze vedet, ze tam bomba je?
-    public addMines: boolean = true;        //maji se miny pridavat pri spatnych tazich hrace?
-    public showLikelihood: boolean = true;  //maji se policka barvit podle pravdepodobnosti?
+    public removeMines: boolean;     //maji se miny odstranovat, pokud uzivatel nemuze vedet, ze tam bomba je?
+    public addMines: boolean;        //maji se miny pridavat pri spatnych tazich hrace?
+    public showLikelihood: boolean;  //maji se policka barvit podle pravdepodobnosti?
 
     public columnArray: ColumnInfo[];
 
@@ -30,11 +30,19 @@ export class MinesweeperService {
         this.bomblessList = new MSList();
     }
 
-    public clearGrid() {
+    public clearGrid(rowCount: number, columnCount: number, bombCount: number, removeMines: boolean, addMines: boolean, showLikelihood: boolean) {
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+        this.bombCount = bombCount;
+        this.removeMines = removeMines;
+        this.addMines = addMines;
+        this.showLikelihood = showLikelihood;
+
         this.columnArray = [];
         for (let i = 0; i < this.columnCount; i++) {
-            this.columnArray.push(new ColumnInfo(i, this.rowCount));
+            this.columnArray.push(new ColumnInfo(i, this.rowCount, showLikelihood));
         }
+
         this.gameTerminated = false;
         this.bombsSet = false;
         this.idleCount = this.rowCount * this.columnCount;

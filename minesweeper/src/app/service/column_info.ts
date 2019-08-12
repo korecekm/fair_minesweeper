@@ -5,11 +5,11 @@ export class ColumnInfo {
     public index: number;
     public squareArray: SquareInfo[];
 
-    constructor(idx: number, squareCount: number) {
+    constructor(idx: number, squareCount: number, showLikelihood: boolean) {
         this.index = idx;
         this.squareArray = [];
         for (let i = 0; i < squareCount; i++) {
-            this.squareArray.push(new SquareInfo(idx, i));
+            this.squareArray.push(new SquareInfo(idx, i, showLikelihood));
         }
     }
 }

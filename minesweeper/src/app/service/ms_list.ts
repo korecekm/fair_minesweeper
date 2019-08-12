@@ -27,8 +27,8 @@ export class MSList {
         this.size++;
     }
     remove(idx) {
-        this.size--;
         if (this.size == idx) return;
+        this.size--;
         this.xArray[idx] = this.xArray[this.size];
         this.yArray[idx] = this.yArray[this.size];
     }

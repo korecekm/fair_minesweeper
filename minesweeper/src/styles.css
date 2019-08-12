@@ -34,3 +34,7 @@ body {
     border-right-color: #ececec;
     border-bottom-color: #ececec;
 }
+
+ul {
+    padding-left: 18px
+}

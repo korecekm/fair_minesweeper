@@ -16,7 +16,10 @@ export class SquareInfo {
     public index: number;            //pouzije se ciste v deleni na subkomponenty
     public subcomponentIdx: number;  // -||-
 
-    constructor(x: number, y: number) {
+    //specialni chovani
+    public showLikelihood: boolean;
+
+    constructor(x: number, y: number, showLikelihood: boolean) {
         this.idxX = x;
         this.idxY = y;
         this.triggered = false;
@@ -29,6 +32,8 @@ export class SquareInfo {
         this.evalBomb = false;
         this.eliminated = false;
         this.found = false;
+
+        this.showLikelihood = showLikelihood;
     }
 }
 export namespace SquareInfo {

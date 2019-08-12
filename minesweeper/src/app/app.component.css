@@ -60,6 +60,22 @@
 .info_icon {
     margin-right: 12px;
 }
-.settings, .info {
-    padding: 3px;
+.settings {
+    overflow: hidden;
+}
+
+.infoset_section {
+    margin: 5px;
+}
+.custom_label {
+    width: 20px;
+    min-width: 20px;
+}
+.okbutton {
+    float: right;
+}
+.textfield {
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
